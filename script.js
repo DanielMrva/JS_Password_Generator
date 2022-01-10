@@ -4,7 +4,7 @@
     var cap = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var numeral = "0123456789";
     var symbol = "!#$%&'()*+,-./:;<=>?@^_`{}~";
-    //length contents and passwordText
+    //length, possible characters (contents), and passwordText
     var incAlpha = "";
     var incCap = "";
     var incNum = "";
@@ -54,6 +54,7 @@ function writePassword() {
     return passwordText;
 };
 
+//function to check password to guard against corner case of not randomly receiving a desired character type
 function checkPassword () {
     if ((incAlpha && !/(?=.*?[a-z])/.test(passwordText)) || (incCap && !/(?=.*?[A-Z])/.test(passwordText)) || (incNum && !/[0-9]/.test(passwordText)) || (incSym && !/(?=.[!#$%&'()*+,-./:;<=>?@^_`{}~])/.test(passwordText))) {
         window.alert("You lost the password lottery and did not receive a requested character")
