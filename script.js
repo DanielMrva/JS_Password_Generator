@@ -16,10 +16,11 @@
 
 function lengthPrompt() {
     length = Number(window.prompt("Password length (8-128 characters)?", "8"));
-    if (length < 8 || length > 128 ) {
+    if ((length < 8 || length > 128 ) || isNaN(length)){
         window.alert("Please choose a valid length, between 8 and 128 characters")
         lengthPrompt();
     }
+    
     return length;
 };
 
