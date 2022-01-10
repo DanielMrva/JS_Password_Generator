@@ -3,11 +3,16 @@
     var alpha = "abcdefghijklmnopqrstuvwxyz";
     var cap = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var numeral = "0123456789";
-    var symbol = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
+    var symbol = "!#$%&'()*+,-./:;<=>?@^_`{}~";
     //length contents and passwordText
+    var incAlpha = "";
+    var incCap = "";
+    var incNum = "";
+    var incSym = "";
     var length = "";
     var contents = "";
     var passwordText = "";
+    
 
 //links generate button in HTML to JS
     var generateBtn = document.querySelector("#generate");
@@ -25,10 +30,10 @@ function lengthPrompt() {
 };
 
 function contentsPrompt() {
-    var incAlpha = window.confirm("Would you like lower-case lettters in your password?");
-    var incCap = window.confirm("Would you like capital letters in your password?");
-    var incNum = window.confirm("Would you like numbers in your password?");
-    var incSym = window.confirm("Would you like symbols in your password?");
+    incAlpha = window.confirm("Would you like lower-case lettters in your password?");
+    incCap = window.confirm("Would you like capital letters in your password?");
+    incNum = window.confirm("Would you like numbers in your password?");
+    incSym = window.confirm("Would you like symbols in your password?");
     incAlpha ? (contents += alpha) : "";
     incCap ? (contents += cap) : ""; 
     incNum ? (contents += numeral) : "";
@@ -49,6 +54,14 @@ function writePassword() {
     return passwordText;
 };
 
+function checkPassword () {
+    if ((incAlpha && !/(?=.*?[a-z])/.test(passwordText)) || (incCap && !/(?=.*?[A-Z])/.test(passwordText)) || (incNum && !/[0-9]/.test(passwordText)) || (incSym && !/(?=.[!#$%&'()*+,-./:;<=>?@^_`{}~])/.test(passwordText))) {
+        window.alert("You lost the password lottery and did not receive a requested character")
+        generatePassword();
+    }
+    return;    
+}
+
 //do all the things function which is attached to button
 function generatePassword() {
     passwordText = "";
@@ -56,6 +69,7 @@ function generatePassword() {
     lengthPrompt();
     contentsPrompt();
     writePassword();
+    checkPassword();
     //puts passwordText into the HTML text box
     document.getElementById("password").innerHTML = passwordText;
     return passwordText;
@@ -63,4 +77,3 @@ function generatePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
-
