@@ -49,7 +49,7 @@ function writePassword() {
 };
 
 //do all the things function which is attached to button
-function makePassword() {
+function generatePassword() {
     passwordText = "";
     contents = "";
     lengthPrompt();
@@ -61,5 +61,5 @@ function makePassword() {
 };
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", makePassword);
+generateBtn.addEventListener("click", generatePassword);
 
