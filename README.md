@@ -12,7 +12,7 @@ When the generate password button is clicked, a series of prompts are generated 
 
 ![Prompts](./Assets/PW_Prompts.jpg)
 
-Once the prompts have been entered correctly, a password is generated and displayed using the above methods.
+Once the prompts have been entered correctly, a password is generated and displayed using the above methods.  The password is also checked using regular expressions versus the desired character contents (as input by user) and an Alert will display notifing the user, who then is prompted to re-enter their desired parameters (length, contents).
 
 ![Compted](./Assets/PW_Complete.jpg)
 
