@@ -1,8 +1,8 @@
 # JS_Password_Generator
-DJM Bootcamp Homework WK3: JS Project - Password Generator
+Javascript Password Generator
 
 ## Notes
-This website was built using some provided code for the project.  Most of the coding was focused on Javascript functionality.
+Most of the coding was focused on Javascript functionality, the html and css components were left mostly as-is from a code refactor.
 
 The initial state of the site begins with a simple restults box with a generate password button below.
 
